@@ -1,42 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import NavItems from "./navItems";
 
 function Nav() {
+    // setup useState to take in information for navbar and dropdown items
+    const [navItemList, setNavItemList] = useState([
+        {name: 'About', dropdownItem1: 'Test', dropdownItem2: 'Google'}, 
+        {name:'Listings',  dropdownItem1: 'House 1', dropdownItem2: 'House 2'} , 
+        {name: 'Contact',  dropdownItem1: 'Email', dropdownItem2: 'Phone'}
+    ]);
+    
     return (
         <header className="flex-row">
             <h1 class="name-tag">
                 Ginger Bennett
             </h1>
             <nav>
-                <ul className=" flex-row nav-list">
-                    <div className="dropdown">
-                        <li className="nav-list-item">About</li>
-                        <div className="dropdown-item">
-                            <p>This Works</p>
-                            <a href="https://www.google.com" target="_blank" >Google</a>
-                        </div>
-                    </div>
-                    <div className="dropdown">
-                        <li className="nav-list-item">Listings</li>
-                        <div className="dropdown-item">
-                            <p>This Works</p>
-                            <a href="https://www.google.com" target="_blank" >Google</a>
-                        </div>
-                    </div>
-                    <div className="dropdown">
-                        <li className="nav-list-item">Listings</li>
-                        <div className="dropdown-item">
-                            <p>This Works</p>
-                            <a href="https://www.google.com" target="_blank" >Google</a>
-                        </div>
-                    </div>
-                    <div className="dropdown">
-                        <li className="nav-list-item">Listings</li>
-                        <div className="dropdown-item">
-                            <p>This Works</p>
-                            <a href="https://www.google.com" target="_blank" >Google</a>
-                        </div>
-                    </div>
-                </ul>
+                {/* set the props to equal useState and pass into the subcomponent */}
+                <NavItems items={navItemList} />
             </nav>
         </header>
     )
