@@ -4,9 +4,9 @@ import NavItems from "./navItems";
 function Nav() {
     // setup useState to take in information for navbar and dropdown items
     const [navItemList, setNavItemList] = useState([
-        {name: 'About', dropdownItem1: 'Test', dropdownItem2: 'Google'}, 
-        {name:'Listings',  dropdownItem1: 'House 1', dropdownItem2: 'House 2'} , 
-        {name: 'Contact',  dropdownItem1: 'Email', dropdownItem2: 'Phone'}
+        {name: 'About', dropdownItem1: 'Test', dropdownItem2: 'Google', id: 1}, 
+        {name:'Listings',  dropdownItem1: 'House 1', dropdownItem2: 'House 2', id: 2} , 
+        {name: 'Contact',  dropdownItem1: 'Email', dropdownItem2: 'Phone', id: 3}
     ]);
     
     return (

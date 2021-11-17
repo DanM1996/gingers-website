@@ -9,7 +9,7 @@ function NavItems(props) {
         <ul className=" flex-row nav-list">
             {/* map through the props so each navitem receives unique information */}
             {items.map((navItem) => (
-                <div className="dropdown">
+                <div className="dropdown" key={navItem.id}>
                 <li className="nav-list-item">{ navItem.name }</li>
                 <div className="dropdown-item">
                     <p>{ navItem.dropdownItem1 }</p>
