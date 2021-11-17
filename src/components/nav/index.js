@@ -15,7 +15,27 @@ function Nav() {
                             <a href="https://www.google.com" target="_blank" >Google</a>
                         </div>
                     </div>
-                    <li className="nav-list-item">Listings</li>
+                    <div className="dropdown">
+                        <li className="nav-list-item">Listings</li>
+                        <div className="dropdown-item">
+                            <p>This Works</p>
+                            <a href="https://www.google.com" target="_blank" >Google</a>
+                        </div>
+                    </div>
+                    <div className="dropdown">
+                        <li className="nav-list-item">Listings</li>
+                        <div className="dropdown-item">
+                            <p>This Works</p>
+                            <a href="https://www.google.com" target="_blank" >Google</a>
+                        </div>
+                    </div>
+                    <div className="dropdown">
+                        <li className="nav-list-item">Listings</li>
+                        <div className="dropdown-item">
+                            <p>This Works</p>
+                            <a href="https://www.google.com" target="_blank" >Google</a>
+                        </div>
+                    </div>
                 </ul>
             </nav>
         </header>

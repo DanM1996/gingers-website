@@ -3,7 +3,8 @@ import image from '../../assets/skyline.jpg'
 function Hero() {
     return (
         <div>
-            <img src={image} className="hero-img" alt="Tampa Skyline"></img>;
+            {/* <img src={image} className="hero-img" alt="Tampa Skyline"></img> */}
+            <p className="hero-img">Sample Text</p>
         </div>
     )
 }
