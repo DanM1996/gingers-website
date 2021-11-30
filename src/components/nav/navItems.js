@@ -3,7 +3,7 @@ import React from "react";
 // receive the props here
 function NavItems(props) {
 
-    // destructure the props into a variable
+    // destructure the props into a variable. items here fomes from the items in index.js, without it the code won't work
     const items = props.items
     return (
         <ul className=" flex-row nav-list">
