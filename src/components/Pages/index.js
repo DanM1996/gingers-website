@@ -1,7 +1,7 @@
 import React from "react";
 import AboutMe from "../About/aboutme";
 import AboutTampa from "../About/abouttampa";
-import Hero from "../hero";
+import Home from "../Home";
 
 function Pages({ currentPage }) {
     const renderPage = () => {
@@ -11,7 +11,7 @@ function Pages({ currentPage }) {
             case 'AboutTampa':
                 return <AboutTampa />;
             default:
-                return <Hero />;
+                return <Home />;
         }
     }
     return (

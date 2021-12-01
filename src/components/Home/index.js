@@ -1,6 +1,6 @@
 import React from "react";
 
-function Hero() {
+function Home() {
     return (
         <div>
             <p className="hero-img">Find Your Next Home With Ginger</p>
@@ -8,4 +8,4 @@ function Hero() {
     )
 }
 
-export default Hero
+export default Home

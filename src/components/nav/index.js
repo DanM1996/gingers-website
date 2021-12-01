@@ -9,7 +9,7 @@ function Nav(props) {
         {name: 'Contact',  dropdownItem1: 'Email', dropdownItem2: <a href="https://www.google.com" target="_blank">Google</a>, id: 3}
     ]);
 
-    
+    const { pages = [], setCurrentPage, currentPage } = props;
     
     return (
         <header className="flex-row">
@@ -19,6 +19,13 @@ function Nav(props) {
             <nav>
                 {/* set the props to equal useState and pass into the subcomponent */}
                 <NavItems items={navItemList} />
+                <ul className="flex-row nav-list">
+                {pages.map(navItem => (
+                    <li className={`li-spacing text-format ${currentPage.name === navItem.name && 'navActive'}`} key={navItem.id}>
+                       <span className="" onClick={() => { setCurrentPage(navItem) }}>{navItem.name}</span>
+                    </li>
+                ))}
+            </ul>
             </nav>
         </header>
     )
