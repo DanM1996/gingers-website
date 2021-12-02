@@ -6,9 +6,9 @@ import Home from "../Home";
 function Pages({ currentPage }) {
     const renderPage = () => {
         switch(currentPage.name) {
-            case 'AboutMe':
+            case 'About Me':
                 return <AboutMe />;
-            case 'AboutTampa':
+            case 'About Tampa Bay':
                 return <AboutTampa />;
             default:
                 return <Home />;

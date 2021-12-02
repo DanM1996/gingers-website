@@ -22,7 +22,7 @@ function Nav(props) {
                 <ul className="flex-row nav-list">
                 {pages.map(navItem => (
                     <li className={`li-spacing text-format ${currentPage.name === navItem.name && 'navActive'}`} key={navItem.id}>
-                       <span className="" onClick={() => { setCurrentPage(navItem) }}>{navItem.name}</span>
+                       <span  onClick={() => { setCurrentPage(navItem) }}>{navItem.name}</span>
                     </li>
                 ))}
             </ul>

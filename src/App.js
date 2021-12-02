@@ -1,6 +1,5 @@
 import './App.css';
 import Nav from './components/Nav';
-import Home from './components/Home';
 import Pages from './components/Pages';
 import { useState } from 'react';
 function App() {
@@ -10,12 +9,16 @@ function App() {
       name: 'Home'
     },
     {
-      id: 2,
-      name: 'AboutMe'
+      id :2,
+      name: 'About'
     },
     {
       id: 3,
-      name: 'AboutTampa'
+      name: 'About Me'
+    },
+    {
+      id: 4,
+      name: 'About Tampa Bay'
     },
   ])
 
@@ -30,7 +33,6 @@ function App() {
       <main>
         <Pages currentPage={currentPage}></Pages>
       </main>
-      {/* <Home /> */}
     </div>
   );
 }
