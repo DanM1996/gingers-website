@@ -1,35 +1,65 @@
-import React, { useState } from "react";
-import NavItems from "./navItems";
+import React, { useState } from 'react';
+import { Button } from '../Button'
+import { Link } from 'react-router-dom'
+import './index.css'
+import Dropdown from '../Dropdown'
 
-function Nav(props) {
-    // setup useState to take in information for navbar and dropdown items
-    const [navItemList, setNavItemList] = useState([
-        {name: 'About', dropdownItem1: 'About Me', dropdownItem2: 'About Tampa Bay', id: 1}, 
-        {name:'Listings',  dropdownItem1: 'House 1', dropdownItem2: 'House 2', id: 2} , 
-        {name: 'Contact',  dropdownItem1: 'Email', dropdownItem2: <a href="https://www.google.com" target="_blank">Google</a>, id: 3}
-    ]);
+function Nav() {
+    const [click, setClick] = useState(false);
+    const [dropdown, setDropdown] = useState(false);
 
-    const { pages = [], setCurrentPage, currentPage } = props;
-    
-    return (
-        <header className="flex-row">
-            <h1 class="name-tag">
-                <img src={"../../assets/Logo1.png"} />
-            </h1>
-            <nav>
-                {/* set the props to equal useState and pass into the subcomponent */}
-                <NavItems items={navItemList} />
-                <ul className="flex-row nav-list">
-                {pages.map(navItem => (
-                    <li className={`li-spacing text-format ${currentPage.name === navItem.name && 'navActive'}`} key={navItem.id}>
-                       <span  onClick={() => { setCurrentPage(navItem) }}>{navItem.name}</span>
-                    </li>
-                ))}
-            </ul>
-            </nav>
-        </header>
-    )
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
 
+    const onMouseEnter = () => {
+        if (window.innerWidth < 960) {
+            setDropdown(false)
+        } else {
+            setDropdown(true)
+        }
+    }
+    const onMouseLeave = () => {
+        if (window.innerWidth < 960) {
+            setDropdown(false)
+        } else {
+            setDropdown(false)
+        }
+    }
+
+    return(
+        <>
+        <nav className='navbar'>
+          <Link to='/' className='navbar-logo'>
+            Tampa Bay
+          </Link>
+          <div className='menu-icon' onClick={handleClick}>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          </div>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            <li className='nav-item'>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                Home
+              </Link>
+            </li>
+            <li className='nav-item'
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
+                Services <i className='fas fa-caret-down' />
+              </Link>
+              {dropdown && <Dropdown />}
+            </li>
+            <li className='nav-item'>
+              <Link to='/contact-me' className='nav-links' onClick={closeMobileMenu}>
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+          <Button />
+        </nav>
+        </>
+      )
 }
 
 export default Nav;

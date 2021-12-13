@@ -2,7 +2,10 @@ import React from "react";
 
 function AboutMe() {
     return(
+        <>
+        <h1>About Me</h1>
         <p>Hi, this is a test. I am seeing if this works</p>
+        </>
     )
 }
 

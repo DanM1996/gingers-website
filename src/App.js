@@ -1,39 +1,20 @@
 import './App.css';
 import Nav from './components/Nav';
-import Pages from './components/Pages';
-import { useState } from 'react';
-function App() {
-  const [pages] = useState([
-    {
-      id: 1,
-      name: 'Home'
-    },
-    {
-      id :2,
-      name: 'About'
-    },
-    {
-      id: 3,
-      name: 'About Me'
-    },
-    {
-      id: 4,
-      name: 'About Tampa Bay'
-    },
-  ])
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import AboutMe from './components/Pages/aboutme';
+import AboutTampa from './components/Pages/abouttampa';
+import Home from './components/Pages/home';
 
-  const [currentPage, setCurrentPage] = useState(pages[0])
+function App() {
   return (
-    <div>
-      <Nav 
-      pages={pages}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
-      ></Nav>
-      <main>
-        <Pages currentPage={currentPage}></Pages>
-      </main>
-    </div>
+    <Router>
+      <Nav />
+      <Routes>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/aboutme' exact element={<AboutMe />} />
+        <Route path='/abouttampa' exact element={<AboutTampa />} />
+      </Routes>
+    </Router>
   );
 }
 
