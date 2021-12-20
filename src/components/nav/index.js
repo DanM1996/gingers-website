@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from '../Button'
 import { Link } from 'react-router-dom'
 import './index.css'
 import AboutDropdown from '../AboutDropdown'
@@ -76,7 +75,6 @@ function Nav() {
             {dropdown1 && <ContactDropdown />}
           </li>
         </ul>
-        <Button />
       </nav>
     </>
   )

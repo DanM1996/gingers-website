@@ -1,9 +1,36 @@
-import React from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import React, { useState} from 'react';
+import { Button, Form } from 'semantic-ui-react'
 import emailjs from 'emailjs-com';
-import './index.css';
+import './index.css'
+import { validateEmail } from '../../utils/helpers';
 
 function LookingToBuy() {
+
+    const [errorMessage, setErrorMessage] = useState('');
+    const [formState, setFormState] = useState({ name: '', phone: '', email: ''});
+    const { name, phone, email } = formState
+
+    const handleChange = (e) => {
+        if (e.target.name === 'email') {
+            const isValid = validateEmail(e.target.value)
+            console.log(isValid);
+            if (!isValid) {
+                setErrorMessage('Please enter a valid email');
+            } else {
+                setErrorMessage('');
+            }
+        } else {
+            if(!e.target.value.length) {
+                setErrorMessage(`Your ${e.target.name} is required`)
+            } else {
+                setErrorMessage('');
+            }
+        }
+        console.log(errorMessage);
+        if(!errorMessage) {
+            setFormState({...formState, [e.target.name]: e.target.value})
+        }
+    }
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -26,17 +53,22 @@ function LookingToBuy() {
         <Form className="formSizing" onSubmit={sendEmail}>
             <Form.Field>
                 <label>Full Name</label>
-                <input name="user_name" placeholder='Enter your full name' />
+                <input defaultValue={name} onBlur={handleChange} name="name" placeholder='Enter your full name' />
             </Form.Field>
             <Form.Field>
                 <label>Phone Number</label>
-                <input name="user_phone" placeholder='Enter your phone number' />
+                <input defaultValue={phone} onBlur={handleChange} name="phone" placeholder='Enter your phone number' />
             </Form.Field>
             <Form.Field>
                 <label>Email Address</label>
-                <input name="user_email" placeholder='Enter your email' />
+                <input defaultValue={email} onBlur={handleChange} name="email" placeholder='Enter your email' />
             </Form.Field>
-            <Button type='submit' value="Send">Submit</Button>
+            {errorMessage && (
+                    <div>
+                        <p className="error-text">{errorMessage}</p>
+                    </div>
+                )}
+            <Button type='submit'>Submit</Button>
         </Form>
         </>
     )
