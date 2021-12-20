@@ -1,0 +1,10 @@
+.formSizing {
+    margin: auto;
+    margin-top: 50px;
+    width: 80%
+}
+.sellText, .buyText {
+    margin: auto;
+    text-align: center;
+    font-size: 16px;
+}
